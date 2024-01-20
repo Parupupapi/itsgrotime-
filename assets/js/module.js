@@ -1,8 +1,5 @@
 /**
- * @license MIT
- * @fileoverview All module functions
- * @copyright Dhruva 2023 All rights reserved
- * @author  Dhruva <dhruvabhat24@gmail.com>
+ * @copyright Grotime cruzhacks 2024 All rights reserved
  */
 
 

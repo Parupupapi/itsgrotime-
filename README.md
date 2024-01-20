@@ -1,6 +1,6 @@
-<h1 align="center" id="title">Weatherio</h1>
+<h1 align="center" id="title">Grotime</h1>
 
-<p align="center"><img src="https://github.com/Dhruvabhat24/Weather-Application/blob/main/project%20screen%20shots/sc.png?raw=true" alt="project-image"></p>
+<p align="center"><img src="https://github.com/JaCARYK/Weather-Application_baht" alt="project-image"></p>
 
 <p id="description">It is a weather application named "Weatherio"</p>
 
