@@ -1,73 +1,82 @@
-import pandas as pd
-import requests
-import json
-import io
+from flask import Flask, render_template, request
 import numpy as np
-import matplotlib.pyplot as plt
+import pandas as pd
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import r2_score
-from sklearn.model_selection import train_test_split
 
-ideal_plant_temp = {'Lettuce':62.5, 'Lemon Grass':80,'Tulsi Basil':75}
-ideal_plant_humidity = {'Lettuce':60, 'Lemon Grass':55,'Tulsi Basil':50}
-ideal_plant_sunlight = {'Lettuce':4, 'Lemon Grass':5,'Tulsi Basil':7}
+app = Flask(__name__)
 
-raw_content_url = 'https://raw.githubusercontent.com/JaCARYK/Weather-Application_baht/main/linear%20regression/weather_data.csv'
+# Load the weather data
+data = pd.read_csv('/Users/anisiva/Documents/Github/LastTry/linear regression project/weather_data.csv')
 
-
-# Download the raw content
-response = requests.get(raw_content_url)
-
-# Check if the request was successful (status code 200)
-if response.status_code == 200:
-    # Read CSV from response text
-    data = pd.read_csv(io.StringIO(response.text))
-
-    # Now you can use the 'data' DataFrame for further analysis
-    #print(data.head())
-else:
-    print(f"Failed to retrieve data. Status code: {response.status_code}")
-
-x = data.drop(['Rating','Date'],axis=1).values
+# Prepare the data for training
+x = data.drop(['Rating', 'Date'], axis=1).values
 y = data['Rating'].values
 
-x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.3,random_state=0)
+# Train the Linear Regression model
+ml = LinearRegression()
+ml.fit(x, y)
 
-ml=LinearRegression()
-ml.fit(x_train,y_train)
+@app.route('/')
+def index():
+    return render_template('index.html')
 
+@app.route('/calculate_rating', methods=['POST'])
+def calculate_rating():
+    plantname = request.form['plantname']
+    idealtemp = request.form['idealtemp']
+    idealhumidity = request.form['idealhumidity']
+    idealsunlight = request.form['idealsunlight']
 
+    rating_output = ml.predict([[int(idealtemp), int(idealtemp), int(idealhumidity), int(idealsunlight)]])
+    rating_output = round(rating_output[0], 2)
 
-Ideal_Lettuce_Score = ml.predict([[65,60,60,4]])
-Ideal_LemonGrass_Score= ml.predict([[85,75,55,5]])
-Ideal_TulsiBasil_Score= ml.predict([[80,70,50,7]])
+    return render_template('result.html', plantname=plantname, output=rating_output)
 
-scores_dict = {
-    'Lettuce': Ideal_Lettuce_Score[0],
-    'Lemon Grass': Ideal_LemonGrass_Score[0],
-    'Tulsi Basil': Ideal_TulsiBasil_Score[0],
-    # Add scores for other plant types
-}
+@app.route('/forecast_today', methods=['POST'])
+def forecast_today():
+    todaytemphigh = request.form['todaytemphigh']
+    todaytemplow = request.form['todaytemplow']
+    todayhumidity = request.form['todayhumidity']
+    todaysunlight = request.form['todaysunlight']
 
+    todayoutput = ml.predict([[int(todaytemphigh), int(todaytemplow), int(todayhumidity), int(todaysunlight)]])
+    todayoutput = round(todayoutput[0], 2)
 
-ml.predict([[85,75,80,10]])
-one=int(ml.predict([[58,52,90,1]]))
-two=ml.predict([[60,48,87,2]])
-three=ml.predict([[61,50,83,5]])
-four=ml.predict([[56,50,90,2]])
-five=ml.predict([[62,50,88,1]])
-six=ml.predict([[64,50,78,2]])
-sevin=ml.predict([[68,49,68,1]])
-eight=ml.predict([[71,50,66,4]])
-Nine=ml.predict([[69,49,68,6]])
-ten=ml.predict([[70,49,75,2]])
+    rating_output = float(request.form['output'])
+    difference = abs(rating_output - todayoutput)
 
-class final_percent:
-    def __init__(self, temp_percent):
-        self.temp_percent=int(temp_percent)
-    def score(self):
-        return (Ideal_Lettuce_Score/self.temp_percent), (Ideal_LemonGrass_Score/self.temp_percent), (Ideal_TulsiBasil_Score/self.temp_percent)
-result=final_percent(one)
-print(result.score())
+    if difference < 10:
+        prompt = "You can plant the plant today. Conditions are suitable."
+    elif 10 <= difference < 20:
+        prompt = "Consider planting the plant with caution. Conditions are moderately suitable."
+    else:
+        prompt = "It's not recommended to plant the plant today. Conditions are not suitable."
 
+    return render_template('forecast_result.html', todaysoutput=todayoutput, difference=difference, prompt=prompt)
 
+@app.route('/compare_ratings', methods=['POST'])
+def compare_ratings():
+    plantname = request.form['plantname']
+    todaytemphigh = request.form['todaytemphigh']
+    todaytemplow = request.form['todaytemplow']
+    todayhumidity = request.form['todayhumidity']
+    todaysunlight = request.form['todaysunlight']
+
+    rating_output = ml.predict([[int(todaytemphigh), int(todaytemplow), int(todayhumidity), int(todaysunlight)]])
+    rating_output = round(rating_output[0], 2)
+
+    output = float(request.form.get('output', 0))
+
+    difference = abs(output - rating_output)
+
+    if difference < 10:
+        prompt = "You can plant the plant today. Conditions are suitable."
+    elif 10 <= difference < 20:
+        prompt = "Consider planting the plant with caution. Conditions are moderately suitable."
+    else:
+        prompt = "It's not recommended to plant the plant today. Conditions are not suitable."
+
+    return render_template('compare_ratings.html', plantname=plantname, prompt=prompt)
+
+if __name__ == '__main__':
+    app.run(debug=True)
