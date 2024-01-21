@@ -14,10 +14,10 @@
 :root {
   /* Colors */
 
-  --primary: #b5a1e5;
-  --on-primary: rgb(58, 150, 99);
-  --background: #4b2275;
-  --on-background: rgb(58, 154, 114);
+  --primary: #1e4d26;
+  --on-primary: rgb(156, 75, 190);
+  --background: #5ec090;
+  --on-background: rgb(95, 58, 154);
   --surface: #1d1c1f;
   --on-surface: rgb(201, 201, 34);
   --on-surface-variant: #46bc28;
