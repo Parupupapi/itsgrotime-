@@ -4,7 +4,7 @@
 
 <p id="description">It is a ML based planting schedule named "grotime"</p>
 
-[weather-application-sooty.vercel.app]([https://weather-application-sooty.vercel.app/](https://gro-time.vercel.app/#/current-location))
+[https://weather-application-sooty.vercel.app/](https://gro-time.vercel.app/#/current-location)
 
   
 <h2>🧐 Features</h2>
