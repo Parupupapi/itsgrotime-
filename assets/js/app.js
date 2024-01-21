@@ -125,6 +125,21 @@ export const updateWeather = function (lat, lon) {
 
   // Current Weather Section
 
+
+// Function to update the live date
+const updateLiveDate = () => {
+  const liveDateElement = document.getElementById("live-date");
+  const currentDate = new Date();
+
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const formattedDate = currentDate.toLocaleDateString('en-US', options);
+
+  liveDateElement.textContent = formattedDate;
+};
+
+// Call the updateLiveDate function to set the initial date
+updateLiveDate();
+
   fetchData(url.currentWeather(lat, lon), function (currentWeather) {
     const {
       weather,

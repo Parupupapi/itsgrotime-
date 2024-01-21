@@ -1,70 +1,164 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="globals.css" />
-        <link rel="stylesheet" href="style.css" />
-    </head>
-    <body>
-        <div class="desktop">
-            <div class="div">
-                <div class="overlap">
-                    <div class="component">
-                        <div class="text-wrapper">Jan 21</div>
-                        <img class="polygon" src="img/polygon-2.svg" />
-                    </div>
-                    <img class="image" src="img/image-1.png" />
-                    <div class="text-wrapper-2">Search City...</div>
-                    <img class="line" src="img/line-1.svg" />
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary 
+        Meta Tags -->
+
+    <title>grotime</title>
+    <meta name="title" content="grotime">
+    <meta name="description" content="grotime">
+
+    <!-- Favicon -->
+
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+    <!-- Google Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
+    <!-- Custom JS Link -->
+
+    <script src="./assets/js/app.js" type="module"></script>
+    <script src="./assets/js/route.js" type="module"></script>
+</head>
+<body>
+
+    <!-- Header -->
+
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="./assets/images/logo.png" width="364" height="58" alt="logo">
+            </a>
+            <div class="search-view" data-search-view>
+                <div class="search-wrapper">
+                    <input type="search" name="search" placeholder="Search city..." autocomplete="off"
+                        class="search-field" data-search-field>
+                    <span class="m-icon leading-icon">Search</span>
+                    <button class="icon-btn leading-icon has-state" aria-label="close search" data-search-toggler>
+                        <span class="m-icon">arrow_back</span>
+                    </button>
                 </div>
-                <div class="text-wrapper-3">Top Plants</div>
-                <div class="overlap-group">
-                    <div class="text-wrapper-4">Search Plant</div>
-                    <img class="img" src="img/image-18.png" />
-                </div>
-                <div class="overlap-2">
-                    <div class="rectangle"></div>
-                    <div class="group">
-                        <img class="lettuce" src="img/lettuce.png" />
-                        <div class="text-wrapper-5">68%</div>
-                    </div>
-                    <img class="image-2" src="img/image-14.png" />
-                </div>
-                <div class="overlap-3">
-                    <div class="rectangle"></div>
-                    <img class="image-2" src="img/image-15.png" />
-                    <div class="group-2">
-                        <div class="text-wrapper-6">Lemongrass</div>
-                        <div class="text-wrapper-5">64%</div>
-                    </div>
-                </div>
-                <div class="overlap-4">
-                    <div class="rectangle"></div>
-                    <div class="group-2">
-                        <div class="text-wrapper-6">Tulsi Basil</div>
-                        <div class="text-wrapper-5">63%</div>
-                    </div>
-                    <img class="image-2" src="img/image-17.png" />
-                </div>
-                <div class="overlap-5">
-                    <div class="h-f-l-f">H: 58°F<br />L: 52°F</div>
-                    <div class="text-wrapper-7">Temperature</div>
-                    <img class="image-3" src="img/image-19.png" />
-                </div>
-                <div class="overlap-group-2">
-                    <div class="text-wrapper-8">90%</div>
-                    <div class="text-wrapper-9">Humidity</div>
-                    <img class="image-4" src="img/image-20.png" />
-                </div>
-                <div class="overlap-6">
-                    <div class="text-wrapper-10">1 Hr</div>
-                    <div class="overlap-7">
-                        <div class="text-wrapper-11">Sunlight</div>
-                        <img class="image-5" src="img/image-21.png" />
-                    </div>
-                </div>
-                <img class="grotime-logo" src="img/grotime-logo-7-1.png" />
+                <div class="search-result" data-search-result></div>
             </div>
+
+            <div class="header-actions">
+
+                <button class="icon-btn has-state" aria-label="open search" data-search-toggler>
+                    <span class="m-icon icon">Search</span>
+                </button>
+
+                <a href="#/current-location" class="btn-primary has-state" data-current-location-btn>
+                    <span class="m-icon">my_location</span>
+
+                    <span class="span">Current Location</span>
+                </a>
+
+            </div>
+
         </div>
-    </body>
-</html>
+    </header>
+
+    <main>
+            <article class="container" data-container>
+            <!-- Add the live date outside the loop -->
+            <div class="live-date" id="live-date"></div>
+                        <!-- Plant Images as Buttons -->
+            <!-- Lettuce -->
+            <img id="lettuce-image" src="./assets/images/lettuce.jpg" alt="Lettuce" data-plant="Lettuce" onclick="navigateToMetrics('Lettuce')">
+            <p class="score" id="lettuce-score">Score: <!-- Add JavaScript to display Lettuce score --></p>
+
+            <!-- Lemon Grass -->
+            <img id="lemonGrass-image" src="./assets/images/lemon_grass.jpg" alt="Lemon Grass" data-plant="Lemon Grass" onclick="navigateToMetrics('Lemon Grass')">
+            <p class="score" id="lemonGrass-score">Score: <!-- Add JavaScript to display Lemon Grass score --></p>
+
+            <!-- Tulsi Basil -->
+            <img id="tulsiBasil-image" src="./assets/images/tulsi_basil.jpg" alt="Tulsi Basil" data-plant="Tulsi Basil" onclick="navigateToMetrics('Tulsi Basil')">
+            <p class="score" id="tulsiBasil-score">Score: <!-- Add JavaScript to display Tulsi Basil score --></p>
+                        <script>
+                // Add JavaScript code to display scores
+                document.getElementById('lettuce-score').innerText = 'Score: ' + scores_dict['Lettuce'];
+                // Repeat similar code for other plant types
+            </script>
+
+            <script>
+            document.getElementById('lettuce-score').innerText = 'Score: ' + scores_dict['Lettuce'];
+            document.getElementById('lemonGrass-score').innerText = 'Score: ' + scores_dict['Lemon Grass'];
+            document.getElementById('tulsiBasil-score').innerText = 'Score: ' + scores_dict['Tulsi Basil'];
+            </script>
+
+            <div class="content-left">
+            <!-- Current Weather-->
+            <section class="section current-weather-card" aria-label="current weather" data-current-weather>
+            </section>
+        
+            <!-- Forecast -->
+            <section class="section forecast" aria-labelledby="forecast-label" data-5-day-forecast="forecast">
+            </section>
+            </div>
+        <article class="container" data-container>
+
+            <div class="content-left">
+                <!-- Current Weather-->
+
+                <section class="section current-weather-card" aria-label="current weather" data-current-weather>
+                </section>
+
+                <!-- Forecast -->
+
+                <section class="section forecast" aria-labelledby="forecast-label" data-5-day-forecast="forecast">
+                </section>
+
+            </div>
+
+            <div class="content-right">
+
+                <!-- Highlights -->
+
+                <section class="section highlights" aria-labelledby="highlights" data-highlights></section>
+
+                <!-- Hourly Forecast -->
+
+                <section class="section hourly-forecast" aria-label="hourly forecast" data-hourly-forecast></section>
+
+                <!-- Footer -->
+
+                <footer class="footer">
+                    <p class="body-3">
+                        Copyright 2024 Grotime Cruzhacks. All Rights Reserved.
+                             </p>
+
+                    <p class="body-3">
+                        Powered By <a href="https://openweathermap.org/api" title="Free OpenWeather Api" target="_blank"
+                            rel="noopener">
+                            <img src="./assets/images/openweather.png" width="150" height="30" loading="lazy"
+                                alt="OpenWeather">
+                        </a>
+                    </p>
+                </footer>
+
+            </div>
+
+            <div class="loading" data-loading></div>
+
+        </article>
+    </main>
+
+<!-- 404 Error -->
+<section class="error-content" data-error-content>
+    <h2 class="heading">404</h2>
+    <p class="body-1">Page not found!</p>
+    <a href="#/weather?lat=40.0932222&lon=-74.9627553" class="btn-primary">
+        <span class="span">Go Home</span>
+    </a>
+</section>
