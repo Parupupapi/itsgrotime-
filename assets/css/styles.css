@@ -14,9 +14,9 @@
 :root {
   /* Colors */
 
-  --primary: #b5a1e5;
+  --primary: #c6d99d;
   --on-primary: rgb(58, 150, 99);
-  --background: #1a7637;
+  --background: #b5f07a;
   --on-background: rgb(58, 154, 114);
   --surface: #1d1c1f;
   --on-surface: rgb(201, 201, 34);
@@ -1143,7 +1143,6 @@ article.container::before {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-
 /*
 .images {
   position: absolute;
