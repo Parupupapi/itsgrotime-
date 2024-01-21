@@ -14,9 +14,9 @@
 :root {
   /* Colors */
 
-  --primary: #c6d99d;
+  --primary: #b5a1e5;
   --on-primary: rgb(58, 150, 99);
-  --background: #b5f07a;
+  --background: #4b2275;
   --on-background: rgb(58, 154, 114);
   --surface: #1d1c1f;
   --on-surface: rgb(201, 201, 34);
@@ -1143,27 +1143,3 @@ article.container::before {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-/*
-.images {
-  position: absolute;
-  left: 20px;
-  /* do this for rest? */
- /* top: 0; */
- /* z-index: 1; */ /* Ensure the image is above other elements
-  */
-
-  /*
-.images {
-  position: absolute;  // Change from fixed to absolute
-  left: 0;
-  top: auto;
-  bottom: 0;  // Adjust the top value accordingly
-  width: 100%;
-  text-align: center;  // Center the images
-  background-color: #00fa32;  // Set a background color if needed
-}
-*/
-
-
-
-
