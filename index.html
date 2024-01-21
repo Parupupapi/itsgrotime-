@@ -73,7 +73,25 @@
             <article class="container" data-container>
             <!-- Add the live date outside the loop -->
             <div class="live-date" id="live-date"></div>
-        
+                        <!-- Plant Images as Buttons -->
+            <!-- Lettuce -->
+            <img id="lettuce-image" src="./assets/images/lettuce.jpg" alt="Lettuce" data-plant="Lettuce" onclick="navigateToMetrics('Lettuce')">
+            <p class="score" id="lettuce-score">Score: <!-- Add JavaScript to display Lettuce score --></p>
+
+            <!-- Lemon Grass -->
+            <img id="lemonGrass-image" src="./assets/images/lemon_grass.jpg" alt="Lemon Grass" data-plant="Lemon Grass" onclick="navigateToMetrics('Lemon Grass')">
+            <p class="score" id="lemonGrass-score">Score: <!-- Add JavaScript to display Lemon Grass score --></p>
+
+            <!-- Tulsi Basil -->
+            <img id="tulsiBasil-image" src="./assets/images/tulsi_basil.jpg" alt="Tulsi Basil" data-plant="Tulsi Basil" onclick="navigateToMetrics('Tulsi Basil')">
+            <p class="score" id="tulsiBasil-score">Score: <!-- Add JavaScript to display Tulsi Basil score --></p>
+                        <script>
+                // Add JavaScript code to display scores
+                document.getElementById('lettuce-score').innerText = 'Score: ' + scores_dict['Lettuce'];
+                // Repeat similar code for other plant types
+            </script>
+
+
             <div class="content-left">
             <!-- Current Weather-->
             <section class="section current-weather-card" aria-label="current weather" data-current-weather>
