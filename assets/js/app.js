@@ -125,43 +125,6 @@ export const updateWeather = function (lat, lon) {
 
   // Current Weather Section
 
-
-// Function to update the live date
-const updateLiveDate = () => {
-  const liveDateElement = document.getElementById("live-date");
-  const currentDate = new Date();
-
-  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  const formattedDate = currentDate.toLocaleDateString('en-US', options);
-
-  liveDateElement.textContent = formattedDate;
-};
-
-// Call the updateLiveDate function to set the initial date
-updateLiveDate();
-
-<script>
-    document.getElementById('lettuce-score').innerText = 'Score: ' + scores_dict['Lettuce'];
-    document.getElementById('lemonGrass-score').innerText = 'Score: ' + scores_dict['Lemon Grass'];
-    document.getElementById('tulsiBasil-score').innerText = 'Score: ' + scores_dict['Tulsi Basil'];
-</script>
-// JavaScript code to display scores dynamically
-const scoresDict = {
-  'Lettuce': 62.73584906,  // Replace with the actual scores
-  'Lemon Grass': 62.26415094,
-  'Tulsi Basil': 61.32075472,
-  // Add scores for other plant types
-};
-
-// Loop through each plant image section and display the corresponding score
-Object.keys(scoresDict).forEach(plantType => {
-  const scoreElement = document.getElementById(`${plantType.toLowerCase()}-score`);
-  if (scoreElement) {
-      scoreElement.innerText = `Score: ${scoresDict[plantType]}`;
-  }
-});
-
-
   fetchData(url.currentWeather(lat, lon), function (currentWeather) {
     const {
       weather,
