@@ -1,155 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta tags, title, and other head elements -->
 
-    <!-- Primary 
-        Meta Tags -->
-
-    <title>grotime</title>
-    <meta name="title" content="grotime">
-    <meta name="description" content="grotime">
-
-    <!-- Favicon -->
-
-    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
-
-    <!-- Google Font -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
-
-    <!-- Custom CSS -->
-
-    <link rel="stylesheet" href="./assets/css/styles.css">
-
-    <!-- Custom JS Link -->
-
-    <script src="./assets/js/app.js" type="module"></script>
-    <script src="./assets/js/route.js" type="module"></script>
+    <!-- Stylesheets and scripts -->
 </head>
 <body>
 
     <!-- Header -->
 
     <header class="header">
-        <div class="container">
-            <a href="#" class="logo">
-                <img src="./assets/images/logo.png" width="364" height="58" alt="logo">
-            </a>
-            <div class="search-view" data-search-view>
-                <div class="search-wrapper">
-                    <input type="search" name="search" placeholder="Search city..." autocomplete="off"
-                        class="search-field" data-search-field>
-                    <span class="m-icon leading-icon">Search</span>
-                    <button class="icon-btn leading-icon has-state" aria-label="close search" data-search-toggler>
-                        <span class="m-icon">arrow_back</span>
-                    </button>
-                </div>
-                <div class="search-result" data-search-result></div>
-            </div>
-
-            <div class="header-actions">
-
-                <button class="icon-btn has-state" aria-label="open search" data-search-toggler>
-                    <span class="m-icon icon">Search</span>
-                </button>
-
-                <a href="#/current-location" class="btn-primary has-state" data-current-location-btn>
-                    <span class="m-icon">my_location</span>
-
-                    <span class="span">Current Location</span>
-                </a>
-
-            </div>
-
-        </div>
+        <!-- Header content -->
     </header>
 
     <main>
-            <article class="container" data-container>
+        <article class="container" data-container>
             <!-- Add the live date outside the loop -->
             <div class="live-date" id="live-date"></div>
 
-            <!-- Plant Images as Footer -->
-            <section class="plants">
-                <a href="#/plant?name=lettuce" class="plant-link" data-plant="lettuce">
-                    <img src="assets/images/lettuce.png" class="images">
-                </a>
-
-                <a href="#/plant?name=lemon-grass" class="plant-link" data-plant="lemon-grass">
-                    <img src="assets/images/lemon_grass.png" class="images">
-                </a>
-
-                <a href="#/plant?name=tutsi-basil" class="plant-link" data-plant="tutsi-basil">
-                    <img src="assets/images/tutsi_basil.png" class="images">
-                </a>
-            </section>        
             <div class="content-left">
-            <!-- Current Weather-->
-            <section class="section current-weather-card" aria-label="current weather" data-current-weather>
-            </section>
-        
-            <!-- Forecast -->
-            <section class="section forecast" aria-labelledby="forecast-label" data-5-day-forecast="forecast">
-            </section>
-            </div>
-        <article class="container" data-container>
-
-            <div class="content-left">
-                <!-- Current Weather-->
-
+                <!-- Current Weather -->
                 <section class="section current-weather-card" aria-label="current weather" data-current-weather>
                 </section>
 
                 <!-- Forecast -->
-
                 <section class="section forecast" aria-labelledby="forecast-label" data-5-day-forecast="forecast">
                 </section>
-
             </div>
 
             <div class="content-right">
-
                 <!-- Highlights -->
-
                 <section class="section highlights" aria-labelledby="highlights" data-highlights></section>
 
                 <!-- Hourly Forecast -->
-
                 <section class="section hourly-forecast" aria-label="hourly forecast" data-hourly-forecast></section>
 
                 <!-- Footer -->
-
                 <footer class="footer">
                     <p class="body-3">
                         Copyright 2024 Grotime Cruzhacks. All Rights Reserved.
-                             </p>
+                    </p>
 
                     <p class="body-3">
-                        Powered By <a href="https://openweathermap.org/api" title="Free OpenWeather Api" target="_blank"
-                            rel="noopener">
-                            <img src="./assets/images/openweather.png" width="150" height="30" loading="lazy"
-                                alt="OpenWeather">
+                        Powered By <a href="https://openweathermap.org/api" title="Free OpenWeather Api" target="_blank" rel="noopener">
+                            <img src="./assets/images/openweather.png" width="150" height="30" loading="lazy" alt="OpenWeather">
                         </a>
                     </p>
                 </footer>
 
+                <!-- Loading spinner -->
+                <div class="loading" data-loading></div>
             </div>
-
-            <div class="loading" data-loading></div>
-
         </article>
+
+        <!-- Plant Images as Footer -->
+        <section class="plants">
+            <a href="#/plant?name=lettuce" class="plant-link" data-plant="lettuce">
+                <img src="./assets/images/lettuce.png" alt="Lettuce">
+            </a>
+
+            <a href="#/plant?name=lemon-grass" class="plant-link" data-plant="lemon-grass">
+                <img src="./assets/images/lemon_grass.png" alt="Lemon Grass">
+            </a>
+
+            <a href="#/plant?name=tutsi-basil" class="plant-link" data-plant="tutsi-basil">
+                <img src="./assets/images/tutsi_basil.png" alt="Tutsi Basil">
+            </a>
+        </section>
+
     </main>
 
-<!-- 404 Error -->
-<section class="error-content" data-error-content>
-    <h2 class="heading">404</h2>
-    <p class="body-1">Page not found!</p>
-    <a href="#/weather?lat=40.0932222&lon=-74.9627553" class="btn-primary">
-        <span class="span">Go Home</span>
-    </a>
-</section>
+    <!-- 404 Error -->
+    <section class="error-content" data-error-content>
+        <h2 class="heading">404</h2>
+        <p class="body-1">Page not found!</p>
+        <a href="#/weather?lat=40.0932222&lon=-74.9627553" class="btn-primary">
+            <span class="span">Go Home</span>
+        </a>
+    </section>
+</body>
+</html>
