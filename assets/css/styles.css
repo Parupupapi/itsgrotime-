@@ -1150,15 +1150,21 @@ article.container::before {
   left: 20px;
   /* do this for rest? */
  /* top: 0; */
- /* z-index: 1; */ /* Ensure the image is above other elements */
+ /* z-index: 1; */ /* Ensure the image is above other elements
+  */
 
- .images {
-  position: absolute; /* Change from fixed to absolute */
+  /*
+.images {
+  position: absolute;  // Change from fixed to absolute
   left: 0;
   top: auto;
-  bottom: 0; /* Adjust the top value accordingly */
+  bottom: 0;  // Adjust the top value accordingly
   width: 100%;
-  text-align: center; /* Center the images */
-  background-color: #00fa32; /* Set a background color if needed */
+  text-align: center;  // Center the images
+  background-color: #00fa32;  // Set a background color if needed
 }
+*/
+
+
+
 
