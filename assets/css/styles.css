@@ -1147,4 +1147,5 @@ article.container::before {
 .images {
   position: absolute;
   left: 20px;
+  /* do this for rest? */
 }
