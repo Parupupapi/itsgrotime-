@@ -1143,3 +1143,8 @@ article.container::before {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+.images {
+  position: absolute;
+  left: 20px;
+}
