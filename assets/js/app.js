@@ -86,34 +86,6 @@ searchField.addEventListener("input", function () {
   }
 });
 
-// Function to update plant information
-function updatePlantInformation(plantName) {
-  // Fetch data for the specified plant and update the information
-  // ...
-
-  // Example: Update the content in the forecast section
-  // Example: Update the content in the forecast section
-const forecastSection = document.querySelector("[data-5-day-forecast='forecast']");
-forecastSection.innerHTML = `
-    <h2 class="title-2" id="forecast-label">${plantName} Forecast</h2>
-    <p class="body-3">${plantName} information and chart here...</p>
-`;
-
-// Make sure the paths to the images are correct
-const lettuceImage = document.createElement("img");
-lettuceImage.src = "./assets/images/lettuce.png";
-forecastSection.appendChild(lettuceImage);
-
-}
-
-// Add event listeners for plant clicks
-const plantLinks = document.querySelectorAll(".plant-link");
-addEventOnElements(plantLinks, "click", function (event) {
-  event.preventDefault();
-  const plantName = event.currentTarget.getAttribute("data-plant");
-  updatePlantInformation(plantName);
-});
-
 const container = document.querySelector("[data-container]");
 const loading = document.querySelector("[data-loading]");
 const currentLocationBtn = document.querySelector(
@@ -152,6 +124,21 @@ export const updateWeather = function (lat, lon) {
   }
 
   // Current Weather Section
+
+
+// Function to update the live date
+const updateLiveDate = () => {
+  const liveDateElement = document.getElementById("live-date");
+  const currentDate = new Date();
+
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const formattedDate = currentDate.toLocaleDateString('en-US', options);
+
+  liveDateElement.textContent = formattedDate;
+};
+
+// Call the updateLiveDate function to set the initial date
+updateLiveDate();
 
   fetchData(url.currentWeather(lat, lon), function (currentWeather) {
     const {
@@ -472,6 +459,13 @@ export const updateWeather = function (lat, lon) {
     });
   });
 };
-//hi
+
+
+
+// app.js
+export const fetchForecastData = function (lat, lon, callback) {
+  fetchData(url.forecast(lat, lon), callback);
+};
+
 
 export const error404 = () => (errorContent.style.display = "flex");

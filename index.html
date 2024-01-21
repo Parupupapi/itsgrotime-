@@ -69,7 +69,16 @@
         </div>
     </header>
 
-    <main>        
+    <main>
+            <article class="container" data-container>
+            <!-- Add the live date outside the loop -->
+            <div class="live-date" id="live-date"></div>
+        
+            <div class="content-left">
+            <!-- Current Weather-->
+            <section class="section current-weather-card" aria-label="current weather" data-current-weather>
+            </section>
+        
             <!-- Forecast -->
             <section class="section forecast" aria-labelledby="forecast-label" data-5-day-forecast="forecast">
             </section>
@@ -122,21 +131,6 @@
         </article>
     </main>
 
-<!-- Plant Images -->
-<section class="plants">
-    <a href="#/plant?name=lettuce" class="plant-link" data-plant="lettuce">
-        <img src="./assets/images/lettuce.png" alt="Lettuce">
-    </a>
-
-    <a href="#/plant?name=lemon-grass" class="plant-link" data-plant="lemon-grass">
-        <img src="./assets/images/lemon_grass.png" alt="Lemon Grass">
-    </a>
-
-    <a href="#/plant?name=tutsi-basil" class="plant-link" data-plant="tutsi-basil">
-        <img src="./assets/images/tutsi_basil.png" alt="Tutsi Basil">
-    </a>
-</section>
-<!-- hi -->
 <!-- 404 Error -->
 <section class="error-content" data-error-content>
     <h2 class="heading">404</h2>
