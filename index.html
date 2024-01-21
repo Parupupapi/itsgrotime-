@@ -69,39 +69,7 @@
         </div>
     </header>
 
-    <main>
-            <article class="container" data-container>
-            <!-- Add the live date outside the loop -->
-            <div class="live-date" id="live-date"></div>
-                        <!-- Plant Images as Buttons -->
-            <!-- Lettuce -->
-            <img id="lettuce-image" src="./assets/images/lettuce.jpg" alt="Lettuce" data-plant="Lettuce" onclick="navigateToMetrics('Lettuce')">
-            <p class="score" id="lettuce-score">Score: <!-- Add JavaScript to display Lettuce score --></p>
-
-            <!-- Lemon Grass -->
-            <img id="lemonGrass-image" src="./assets/images/lemon_grass.jpg" alt="Lemon Grass" data-plant="Lemon Grass" onclick="navigateToMetrics('Lemon Grass')">
-            <p class="score" id="lemonGrass-score">Score: <!-- Add JavaScript to display Lemon Grass score --></p>
-
-            <!-- Tulsi Basil -->
-            <img id="tulsiBasil-image" src="./assets/images/tulsi_basil.jpg" alt="Tulsi Basil" data-plant="Tulsi Basil" onclick="navigateToMetrics('Tulsi Basil')">
-            <p class="score" id="tulsiBasil-score">Score: <!-- Add JavaScript to display Tulsi Basil score --></p>
-                        <script>
-                // Add JavaScript code to display scores
-                document.getElementById('lettuce-score').innerText = 'Score: ' + scores_dict['Lettuce'];
-                // Repeat similar code for other plant types
-            </script>
-
-            <script>
-            document.getElementById('lettuce-score').innerText = 'Score: ' + scores_dict['Lettuce'];
-            document.getElementById('lemonGrass-score').innerText = 'Score: ' + scores_dict['Lemon Grass'];
-            document.getElementById('tulsiBasil-score').innerText = 'Score: ' + scores_dict['Tulsi Basil'];
-            </script>
-
-            <div class="content-left">
-            <!-- Current Weather-->
-            <section class="section current-weather-card" aria-label="current weather" data-current-weather>
-            </section>
-        
+    <main>        
             <!-- Forecast -->
             <section class="section forecast" aria-labelledby="forecast-label" data-5-day-forecast="forecast">
             </section>
@@ -154,6 +122,21 @@
         </article>
     </main>
 
+<!-- Plant Images -->
+<section class="plants">
+    <a href="#/plant?name=lettuce" class="plant-link" data-plant="lettuce">
+        <img src="./assets/images/lettuce.png" alt="Lettuce">
+    </a>
+
+    <a href="#/plant?name=lemon-grass" class="plant-link" data-plant="lemon-grass">
+        <img src="./assets/images/lemon_grass.png" alt="Lemon Grass">
+    </a>
+
+    <a href="#/plant?name=tutsi-basil" class="plant-link" data-plant="tutsi-basil">
+        <img src="./assets/images/tutsi_basil.png" alt="Tutsi Basil">
+    </a>
+</section>
+<!-- hi -->
 <!-- 404 Error -->
 <section class="error-content" data-error-content>
     <h2 class="heading">404</h2>

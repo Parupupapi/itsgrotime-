@@ -465,5 +465,6 @@ export const updateWeather = function (lat, lon) {
     });
   });
 };
+//hi
 
 export const error404 = () => (errorContent.style.display = "flex");
