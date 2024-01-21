@@ -445,4 +445,12 @@ export const updateWeather = function (lat, lon) {
   });
 };
 
+
+
+// app.js
+export const fetchForecastData = function (lat, lon, callback) {
+  fetchData(url.forecast(lat, lon), callback);
+};
+
+
 export const error404 = () => (errorContent.style.display = "flex");

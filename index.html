@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Primary Meta Tags -->
+    <!-- Primary 
+        Meta Tags -->
 
     <title>grotime</title>
     <meta name="title" content="grotime">
@@ -69,6 +70,22 @@
     </header>
 
     <main>
+            <article class="container" data-container>
+            <!-- Add the logo and live date outside the loop -->
+            <div class="logo">
+            <img src="./assets/images/logo.png" width="364" height="58" alt="logo">
+            </div>
+            <div class="live-date" id="live-date"></div>
+        
+            <div class="content-left">
+            <!-- Current Weather-->
+            <section class="section current-weather-card" aria-label="current weather" data-current-weather>
+            </section>
+        
+            <!-- Forecast -->
+            <section class="section forecast" aria-labelledby="forecast-label" data-5-day-forecast="forecast">
+            </section>
+            </div>
         <article class="container" data-container>
 
             <div class="content-left">
@@ -117,20 +134,11 @@
         </article>
     </main>
 
-    <!-- 404 Error -->
-
-    <section class="error-content" data-error-content>
-
-        <h2 class="heading">404</h2>
-
-        <p class="body-1">Page not found!</p>
-
-        <a href="#/weather?lat=40.0932222&lon=-74.9627553" class="btn-primary">
-            <span class="span">Go Home</span>
-        </a>
-
-    </section>
-
-</body>
-</html>
-
+<!-- 404 Error -->
+<section class="error-content" data-error-content>
+    <h2 class="heading">404</h2>
+    <p class="body-1">Page not found!</p>
+    <a href="#/weather?lat=40.0932222&lon=-74.9627553" class="btn-primary">
+        <span class="span">Go Home</span>
+    </a>
+</section>
