@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #bdecb6; /* Light green background */
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            padding: 20px;
+            background-color: #ffffff; /* White container background */
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            overflow: hidden; /* Hide overflowing content */
+        }
+
+        .result-container {
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fade-in 1s forwards;
+        }
+
+        .result-message {
+            font-size: 18px;
+            margin-top: 20px;
+            color: #2c3e50; /* Dark gray text */
+        }
+
+        #plant-name {
+            color: #27ae60; /* Emerald green for plant name */
+            font-weight: bold;
+        }
+
+        .moving-leaves {
+            position: relative;
+            top: 0;
+            animation: leaves-move 5s alternate infinite ease-in-out; /* Moving leaves */
+        }
+
+        @keyframes leaves-move {
+            to {
+                top: -20px;
+            }
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #3498db; /* Dodger blue for link */
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            color: #2980b9; /* Darker blue on hover */
+        }
+
+        /* Background movement animation */
+        @keyframes bg-move {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: 100% 100%;
+            }
+        }
+
+        @keyframes fade-in {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="moving-leaves">Comparison Result</h1>
+
+        <div class="result-container">
+            <div class="result-message">
+                 <span id="plant-name">{{ plantname }}</span> {{ prompt }}
+            </div>
+        </div>
+
+        <a href="{{ url_for('index') }}">Go Back</a>
+    </div>
+</body>
+</html>
