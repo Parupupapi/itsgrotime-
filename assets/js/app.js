@@ -92,11 +92,18 @@ function updatePlantInformation(plantName) {
   // ...
 
   // Example: Update the content in the forecast section
-  const forecastSection = document.querySelector("[data-5-day-forecast='forecast']");
-  forecastSection.innerHTML = `
-      <h2 class="title-2" id="forecast-label">${plantName} Forecast</h2>
-      <p class="body-3">${plantName} information and chart here...</p>
-  `;
+  // Example: Update the content in the forecast section
+const forecastSection = document.querySelector("[data-5-day-forecast='forecast']");
+forecastSection.innerHTML = `
+    <h2 class="title-2" id="forecast-label">${plantName} Forecast</h2>
+    <p class="body-3">${plantName} information and chart here...</p>
+`;
+
+// Make sure the paths to the images are correct
+const lettuceImage = document.createElement("img");
+lettuceImage.src = "./assets/images/lettuce.png";
+forecastSection.appendChild(lettuceImage);
+
 }
 
 // Add event listeners for plant clicks
