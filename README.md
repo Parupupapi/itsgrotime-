@@ -1,6 +1,6 @@
 <h1 align="center" id="title">Grotime</h1>
 
-<p align="center"><img src="https://github.com/JaCARYK/Weather-Application_baht"
+<p align="center">
 
 <p id="description">It is a ML based planting schedule named "grotime"</p>
 
